@@ -1,0 +1,152 @@
+{
+  "manifest_excludes_itself": true,
+  "files": [
+    {
+      "path": "buildroot-external/board/common/rootfs-overlay/etc/init.d/S42plutosky-r2-usb-gadget",
+      "mode": "100755",
+      "bytes": 1781,
+      "sha256": "b48da4ca065fc743abb634833aa196eff7f3bf83a2d8bdfa0991c0f3eab3f6c9",
+      "git_blob_sha": "bce1b704ad138df395906609eca13e423eda14b2"
+    },
+    {
+      "path": "buildroot-external/board/common/rootfs-overlay/etc/init.d/S43plutosky-r2-usb-console",
+      "mode": "100755",
+      "bytes": 1060,
+      "sha256": "464b6ffe631da1f122ac3038aeff0df80740c3b70ded2ef03449cb7646fefa55",
+      "git_blob_sha": "1c00a406d4f0f2963a04e65030931866da11da0c"
+    },
+    {
+      "path": "buildroot-external/board/common/rootfs-overlay/etc/init.d/S95openwifi-monitor",
+      "mode": "100755",
+      "bytes": 942,
+      "sha256": "743ea507113bb54499e8ad1e24c3a88d1344ee103cc3a8352aa6ecfc1f6088f8",
+      "git_blob_sha": "6a090ef69f613cc44956931235ed961e3d53416f"
+    },
+    {
+      "path": "buildroot-external/configs/openwifi_plutosky_r2.fragment",
+      "mode": "100644",
+      "bytes": 606,
+      "sha256": "a6490776eb6a7772b72b1d4b67b1a09e6be4a5fe857cea78705b5ec5ef94bfa8",
+      "git_blob_sha": "0e846b3ad84465636c5d0d3926b2c61d74228695"
+    },
+    {
+      "path": "buildroot-external/external.mk",
+      "mode": "100644",
+      "bytes": 1998,
+      "sha256": "f5c1e9d6ec9c131466decbb0d0eda78b8d3b37630b1ff7ddc51b05ac33fdae2e",
+      "git_blob_sha": "d966333ae60697ff00fdd2d355cf3a3973e3d195"
+    },
+    {
+      "path": "buildroot-external/patches/uboot/plutosky_r2/0002-spl-align-with-byte-padding.patch",
+      "mode": "100644",
+      "bytes": 431,
+      "sha256": "7f24225280cdc1703cd959d65fe4a78c86512074d053a30f22ba497c341c6168",
+      "git_blob_sha": "734b9b1d45ad833d7281b12b7995c59797c7d7c1"
+    },
+    {
+      "path": "buildroot-external/support/mk-plutosky-r2-qspi-firmware.sh",
+      "mode": "100755",
+      "bytes": 3031,
+      "sha256": "a0f69efe423a3e774347e1bb6dc359ee191de69b2bded7765b79d1122faeaafa",
+      "git_blob_sha": "0938bc8abcc6586cdd16887215de9d712097a654"
+    },
+    {
+      "path": "buildroot-external/support/prepare-board.py",
+      "mode": "100755",
+      "bytes": 7329,
+      "sha256": "eae94d4e3341a2b8599dd2ed38847c76a131d1528966cbae1c616210d304a421",
+      "git_blob_sha": "50d517c9e987d4329ef728da88f047d58694b6b1"
+    },
+    {
+      "path": "doc/rnd/2026-10-26-plutosky-r2/FINDINGS.md",
+      "mode": "100644",
+      "bytes": 4271,
+      "sha256": "620c6d831ed7d6a8e1c496aac4ad2dbd358b2b8539246ca04d36fcd665fbb0fa",
+      "git_blob_sha": "57db1407b5b648d3c58fa5609a7ec930faaf0bac"
+    },
+    {
+      "path": "doc/rnd/2026-10-26-plutosky-r2/PIPELINE.md",
+      "mode": "100644",
+      "bytes": 5520,
+      "sha256": "c8ad598bb0f420b270961257cfd380bd030ae60bfa2f6e8e3c426ffe77835314",
+      "git_blob_sha": "dee9ceaae622302f568941243c99455c0864dfc9"
+    },
+    {
+      "path": "doc/rnd/2026-10-26-plutosky-r2/README.md",
+      "mode": "100644",
+      "bytes": 2110,
+      "sha256": "60ffcc77795a19b7f60b685984b5c236b1cb17481ee434f6e8dccaf932897eb1",
+      "git_blob_sha": "42d5196ae0b7f2aadd03f139622342b854c4fece"
+    },
+    {
+      "path": "doc/rnd/2026-10-26-plutosky-r2/offline-regression.json",
+      "mode": "100644",
+      "bytes": 1884,
+      "sha256": "8f1e3b7b0d3067ec4d20f694870a6cbe566cd2539b4dd21e8bdb5de6f2d5a942",
+      "git_blob_sha": "e6686469a5afc155cce8f1a5945b0b94b14f59fb"
+    },
+    {
+      "path": "doc/rnd/2026-10-26-plutosky-r2/provenance.json",
+      "mode": "100644",
+      "bytes": 4487,
+      "sha256": "99152c77806e44789342705e92abe8d2aff514eb6279a352b57c12e30fb19e94",
+      "git_blob_sha": "961d1faa97ac53351d7f43eba408de5f731b7f07"
+    },
+    {
+      "path": "doc/rnd/2026-10-26-plutosky-r2/publication-checks.json",
+      "mode": "100644",
+      "bytes": 717,
+      "sha256": "77270536e09f4428d1944bba1d71d15f8dcb91840e000f828fa41a7284ef8b88",
+      "git_blob_sha": "3ff9fa1a99a4db060db25f19a6afd3b2e904bdd1"
+    },
+    {
+      "path": "doc/rnd/2026-10-26-plutosky-r2/validation.json",
+      "mode": "100644",
+      "bytes": 3594,
+      "sha256": "faf98d3aeb3782af31ca8eacfe857ec48b6ebd6f9242b9db483814b9b4f36eb6",
+      "git_blob_sha": "a25fd1e2994b1c82afa137d91e921efdfe275103"
+    },
+    {
+      "path": "driver/sdr.c",
+      "mode": "100644",
+      "bytes": 118867,
+      "sha256": "a348bba900c57154417daac63c12d98fcfa8320a3e8e6318336d9d868b54a888",
+      "git_blob_sha": "be1c4a50ca19fa99a62ee0fa613f9fbd4c246e2f"
+    },
+    {
+      "path": "driver/sdr.h",
+      "mode": "100644",
+      "bytes": 17318,
+      "sha256": "c1560efb56f062a77c4b4a08b5d399566560cf28ff549569005f69e240a50ae6",
+      "git_blob_sha": "8146ba25726bed7629a220d037f3b0f8a333ad98"
+    },
+    {
+      "path": "kernel_boot/boards/plutosky_r2/devicetree.dts",
+      "mode": "100644",
+      "bytes": 27889,
+      "sha256": "f1c9f0aa17f029f67ee3e91ca01105ce21eef6d6e715d9bfd1fc46d5f7137640",
+      "git_blob_sha": "feee257f59332e56a7fed4d62e569e22c68cb079"
+    },
+    {
+      "path": "kernel_boot/kernel_config",
+      "mode": "100644",
+      "bytes": 187261,
+      "sha256": "a73194580f36f6ef6823586abc636a8ff7c16dd2fd91f9621374a5062080a125",
+      "git_blob_sha": "87c7574718f77a185627ddfd36f4374787a19b6c"
+    },
+    {
+      "path": "tools/analyze_openwifi_r2_pcap.py",
+      "mode": "100755",
+      "bytes": 5281,
+      "sha256": "268ce9c80ce3890cee555be4d1706d17228784632fee745e09967d42db392101",
+      "git_blob_sha": "d593653a4e27eae25ed69790f69dd24bb7512cc3"
+    },
+    {
+      "path": "tools/tests/test_analyze_openwifi_r2_pcap.py",
+      "mode": "100644",
+      "bytes": 1723,
+      "sha256": "9337039b2493968c4b3287e58444076a67934e3899c18589655b0d3679d3186a",
+      "git_blob_sha": "e3c594074ed8f556d72a23ac83db90644c05fa3d"
+    }
+  ]
+}

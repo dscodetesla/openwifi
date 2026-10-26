@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "checkpoint_date": "2026-10-26",
+  "evidence_mode": "historical_session_evidence_not_new_measurement",
+  "scope": "one PlutoSky-R2, RX monitor channel7 HT20",
+  "result": "RX_RECOVERED_DDS_ABI_AND_RX_METADATA_FIXED_PERSISTED",
+  "gates": {
+    "flash_boot": "PASS",
+    "linux_lan_iio": "PASS",
+    "monitor_autostart": "PASS",
+    "channel_mhz": 2442,
+    "bandwidth_mhz": 20,
+    "auto_ack": {
+      "disabled": true,
+      "xpu_register": 11,
+      "value_hex": "0x10"
+    },
+    "payload_readback": "PASS",
+    "factory_bootchain_unchanged": "PASS",
+    "nvmfs_unchanged": "PASS",
+    "environment_crc": "PASS",
+    "rx_digital_timing_40mhz": "PASS_WINDOW_PRESENT",
+    "rx_pll": "VCO_LOCK",
+    "tx_pll": "VCO_LOCK",
+    "tx_digital_timing": "FAIL_32_AGGREGATE_POSITIONS",
+    "native_usb": "FAIL_ENUMERATION_NOT_ESTABLISHED",
+    "debug_uart": "PASS",
+    "long_rx_stability": "UNRESOLVED_STALL_OBSERVED",
+    "ap_rf_tx": "NOT_QUALIFIED",
+    "external_rf_emissions_measurement": "NOT_RUN",
+    "physical_power_cycle": "NOT_RUN"
+  },
+  "captures": [
+    {
+      "stage": "initial_flash_before_resume",
+      "records": 100,
+      "hardware_fcs_good": 47,
+      "hardware_fcs_bad": 53,
+      "crc24_matches": 47,
+      "metadata_agreements": 100,
+      "kernel_drops": 0
+    },
+    {
+      "stage": "abi_only_flash_before_metadata_fix",
+      "records": 300,
+      "radiotap_good": 218,
+      "radiotap_bad": 82,
+      "crc24_matches": 220,
+      "metadata_agreements": 298,
+      "discrepancies": 2,
+      "discrepancy_type": "ACK14byte; stale RX status consistent with source bug; full CRC32 mismatch both",
+      "raw_capture_included": false
+    },
+    {
+      "stage": "metadata_fix_ram",
+      "records": 351,
+      "hardware_fcs_good": 302,
+      "hardware_fcs_bad": 49,
+      "crc24_matches": 302,
+      "metadata_agreements": 351,
+      "kernel_drops": 0,
+      "pcap_sha256": "534d870bcfd39cef9effb4ed883110ef4bdf4b49b9066005f44db669bedb4ab8",
+      "raw_capture_included": false
+    },
+    {
+      "stage": "final_flash",
+      "records": 300,
+      "hardware_fcs_good": 248,
+      "hardware_fcs_bad": 52,
+      "crc24_matches": 248,
+      "metadata_agreements": 300,
+      "kernel_drops": 0,
+      "frequency_mhz": 2442,
+      "pcap_sha256": "7a0291801c759f9e7800be589bf327d3669a06294e53d42d50d82441283ace4a",
+      "raw_capture_included": false
+    }
+  ],
+  "fcs_interpretation": {
+    "last_octet_overwritten_by_fpga": true,
+    "bit7": "hardware fcs_ok",
+    "bits6_to0": "RX sequence counter",
+    "crc24": "compare retained first3 FCS octets with computed CRC32 little-endian first3",
+    "independent_full_crc32_validated": false,
+    "pcap_repaired": false
+  },
+  "stall": {
+    "after_uptime_hours_min": 5,
+    "capture_seconds": 50,
+    "records": 0,
+    "rx_irq_and_counters_stopped": true,
+    "retune_recovered": false,
+    "interface_reset_recovered": false,
+    "module_reload_recovered": false,
+    "full_reboot_recovered": true,
+    "recovery_capture_records": 100,
+    "root_cause": "UNKNOWN",
+    "automatic_reboot_added": false
+  },
+  "tx": {
+    "internal_loopback_prbs": "FAIL",
+    "rx_test_before_tx": "PASS",
+    "pinout_framing_definite_mismatch_found": false,
+    "post_trial_delay_registers": {
+      "0x006": "0x03",
+      "0x007": "0x50"
+    },
+    "rf_tx_test_performed": false
+  },
+  "privacy": {
+    "passwords_included": false,
+    "host_user_paths_included": false,
+    "ssh_keys_included": false,
+    "device_mac_or_serial_included": false,
+    "raw_pcap_included": false,
+    "factory_flash_included": false
+  }
+}

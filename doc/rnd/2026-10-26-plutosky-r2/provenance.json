@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "checkpoint_date": "2026-10-26",
+  "source_of_truth": "private canonical CURRENT_STATE.md and sanitized historical evidence summaries",
+  "historical_session_completed_utc": "2026-10-26T05:31:18Z",
+  "destination": {
+    "repository": "dscodetesla/openwifi",
+    "branch": "chore/plutosky-r2-rnd-checkpoint-2026-10-26",
+    "companion_repository": "dscodetesla/PlutoSky-R2",
+    "companion_branch": "chore/plutosky-r2-rnd-checkpoint-2026-10-26"
+  },
+  "source_pins": {
+    "openwifi": "9d4d1b0030df7756a2cf99458f970af7cb66f53f",
+    "openwifi_hw_img": "64f27c5f897a807cf58fc383dd4b08c728abc07c",
+    "openwifi_hw_recorded_by_xsa_metadata": "ca50ac833184f37307a96994e46333c60615de86",
+    "buildroot": "ff3b00e7d01894963ce05f8cc9077ac0d61d4ad9",
+    "linux": "40201abd70d8f7848547a09fc7e366fba064483c",
+    "adi_hdl_recorded_by_xsa_metadata": "7ea497b6c24172ee293d6e0a9a387a16973da5ce",
+    "adi_hdl_tag": "2022_R2",
+    "openofdm_recorded_by_xsa_metadata": "b2a4833e133642cd4e0669349b837748d2c0d8ca",
+    "vendor_reference": "a8a7a970b8261217aca77c1a31c400b9fb850259"
+  },
+  "hardware": {
+    "part": "xc7z020clg484-2",
+    "xsa_tool": "Vivado 2022.2",
+    "xsa_sha256": "e684d2908da3d159d1c7a797a3994aadd80449f4d907cd7334b989ce8c988c1e",
+    "bitstream_sha256": "99d9da8b83b15331234a3b30f2fbbb6c739512a67119e2ecade7cc8917a050be",
+    "rf_chip_identity": "AD9361 configured; package marking not inspected",
+    "jedec": "ef4019",
+    "flash_bytes": 33554432,
+    "ram_bytes": 1073741824,
+    "reference_clock_hz_declared": 40000000,
+    "reference_clock_physically_measured": false,
+    "xsa_has_top_hdl": false,
+    "xsa_has_implemented_dcp": false,
+    "physical_pin_mapping_basis": "recorded top-wrapper source plus HWH; not independent bitstream reverse engineering"
+  },
+  "final_artifacts": {
+    "fit": {
+      "bytes": 21235108,
+      "sha256": "115944e0cd4de878fb263a810152fcce54628aeeb40f8ae3834970eb12763424",
+      "md5": "e47c28583deebf62a3eecdcaa824cc40",
+      "generic_path": "openwifi/output/plutosky_r2/images/openwifi-plutosky_r2-qspi.itb"
+    },
+    "dfu": {
+      "generic_path": "openwifi/output/plutosky_r2/images/openwifi-plutosky_r2-qspi.dfu",
+      "suffix_validation": "PASS",
+      "sha256": "4c687151131433944bcf634a32c391db4487fa5357f93a8aeb47d6281b264c36",
+      "bytes": 21235124
+    },
+    "sdr_module_sha256": "9a92ea9f5c87a353b9a4d3bb95ef8c56ff7485f110a6101f1223ff2d3943732f",
+    "uboot_fit_size": {
+      "value_hex": "0x14405a8",
+      "read_bytes": 21235112,
+      "payload_bytes": 21235108,
+      "extra_erased_bytes": 4,
+      "environment_unchanged_last_update": true
+    }
+  },
+  "evidence_summaries": [
+    {
+      "private_filename": "resume-state.json",
+      "role": "final machine-readable checkpoint"
+    },
+    {
+      "private_filename": "final-rx-summary.json",
+      "role": "final Flash RX metadata/CRC24 gate"
+    },
+    {
+      "private_filename": "fcs-ram-summary.json",
+      "role": "RAM module gate"
+    },
+    {
+      "private_filename": "final-env-verification.json",
+      "role": "fit_size and environment CRC gate"
+    },
+    {
+      "private_filename": "fcs-image.json",
+      "role": "final image/module hashes"
+    }
+  ],
+  "public_primary_sources": [
+    "https://github.com/open-sdr/openwifi/issues/508",
+    "https://github.com/open-sdr/openwifi/tree/9d4d1b0030df7756a2cf99458f970af7cb66f53f",
+    "https://github.com/open-sdr/openwifi-hw/tree/ca50ac833184f37307a96994e46333c60615de86/boards/plutosky_r2",
+    "https://github.com/open-sdr/openwifi-hw-img/tree/64f27c5f897a807cf58fc383dd4b08c728abc07c/boards/plutosky_r2",
+    "https://github.com/analogdevicesinc/linux/blob/40201abd70d8f7848547a09fc7e366fba064483c/drivers/iio/adc/ad9361_conv.c",
+    "https://github.com/analogdevicesinc/linux/blob/40201abd70d8f7848547a09fc7e366fba064483c/drivers/iio/frequency/cf_axi_dds.c",
+    "https://github.com/uutils/coreutils/blob/0.8.0/src/uu/dd/src/parseargs.rs",
+    "https://github.com/dscodetesla/PlutoSky-R2"
+  ],
+  "exclusions": [
+    "passwords",
+    "host-specific user paths",
+    "SSH keys",
+    "device MAC and serial identifiers",
+    "raw capture contents",
+    "factory Flash contents",
+    "private backup location"
+  ],
+  "claim_limits": [
+    "historical evidence only",
+    "no TX/AP qualification",
+    "no long RX stability claim",
+    "no native USB success claim",
+    "no independent full32bit FCS validation",
+    "source pinout match is not physical TX validation"
+  ]
+}

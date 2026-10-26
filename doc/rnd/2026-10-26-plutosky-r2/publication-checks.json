@@ -1,0 +1,22 @@
+{
+  "scope": "source/publication validation; hardware results remain historical",
+  "source_diff_check": "PASS",
+  "shell_syntax": "PASS",
+  "python_ast": "PASS",
+  "json_parse": "PASS",
+  "local_markdown_links": "PASS",
+  "privacy_scan": "PASS",
+  "analyzer_synthetic_tests": 4,
+  "malformed_rate_old_analyzer_test": "FAIL_AS_EXPECTED",
+  "malformed_rate_fixed_analyzer_test": "PASS",
+  "offline_capture_regression_exit_codes": {
+    "before_rx_metadata_fix": 1,
+    "fixed_ram": 0,
+    "fixed_flash": 0
+  },
+  "new_hardware_measurement": false,
+  "fresh_full_firmware_rebuild": false,
+  "raw_captures_published": false,
+  "local_reference_checkouts_shallow": true,
+  "scope_is_full_offline_history_backup": false
+}
