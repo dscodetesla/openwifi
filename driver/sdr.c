@@ -2352,7 +2352,7 @@ static int openwifi_dev_probe(struct platform_device *pdev)
       err = -ENODEV;
       goto err_free_dev;
     }
-    printk("%s openwifi_dev_probe: cf-ad9361-dds-core-lpc dds_st->version %08x chip_info->name %s\n",sdr_compatible_str,priv->dds_st->version,priv->dds_st->chip_info->name);
+    printk("%s openwifi_dev_probe: DDS device %s\n", sdr_compatible_str, dev_name(tmp_dev));
     cf_axi_dds_datasel(priv->dds_st, -1, DATA_SEL_DMA);
     printk("%s openwifi_dev_probe: cf_axi_dds_datasel DATA_SEL_DMA\n",sdr_compatible_str);
 
