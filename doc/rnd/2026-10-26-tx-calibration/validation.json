@@ -1,5 +1,5 @@
 {
-  "status": "HOLD_RAM_BOOT_RECOVERY_REQUIRED",
+  "status": "FLASH_BOOT_DIGITAL_PN_AND_MONITOR_RX_PASS",
   "image": {
     "bytes": 21241156,
     "fit_size_hex": "0x1441d44",
@@ -12,11 +12,80 @@
     "dfu_crc_valid": true
   },
   "prototype_calibration_runs_passed": 4,
-  "canonical_hardened_helper_boot": "NOT_RUN_INITRD_BOOTARG_PANIC",
+  "canonical_hardened_helper_boot": "PASS_RAM_AND_NORMAL_FLASH_BOOT",
   "tx_full_grid_confirmed_points": 77,
   "selection_test_patterns": 65536,
   "boot_service_cases_passed": 14,
   "ota_tx_ap": "NOT_TESTED",
-  "flash_programming_this_investigation": false,
-  "root_mechanism": "invalid/unstable RX clock-delay selection breaks subsequent TX PN synchronization; physical clock/settling cause unresolved"
+  "flash_programming_this_investigation": true,
+  "root_mechanism": "invalid/unstable RX clock-delay selection breaks subsequent TX PN synchronization; physical clock/settling cause unresolved",
+  "ram_qualification": {
+    "phase": "ram",
+    "rx_delay": "03",
+    "tx_delay": "50",
+    "helper_sha256": "e395597f28c1a4ede9e31294d1b5320894ecbaface3082d58a9b3c47488ab0b6",
+    "pn_rx_tx_confirm_ms": 500,
+    "capture": {
+      "counts": {
+        "crc24_match": 294,
+        "crc24_mismatch": 6,
+        "fpga_bad": 6,
+        "fpga_good": 294,
+        "good_status_crc24_mismatch": 0,
+        "metadata_agrees": 300,
+        "metadata_mismatches": 0,
+        "radiotap_bad": 6,
+        "radiotap_good": 294,
+        "records": 300,
+        "truncated_records": 0
+      },
+      "frequencies_mhz": {
+        "2442": 300
+      },
+      "pcap_sha256": "390974a31c032f233a61334aa6b46843095d5b5adf4af9d4362975d8e835af4c",
+      "scope": "Openwifi R2 status/sequence trailer; preserved CRC24 only"
+    },
+    "kernel_drops": 0,
+    "host_utc": 1793029470.9520893,
+    "result": "PASS",
+    "scope": "digital PN + monitor RX; no OTA TX/AP qualification"
+  },
+  "flash_qualification": {
+    "phase": "flash",
+    "rx_delay": "03",
+    "tx_delay": "50",
+    "helper_sha256": "e395597f28c1a4ede9e31294d1b5320894ecbaface3082d58a9b3c47488ab0b6",
+    "pn_rx_tx_confirm_ms": 500,
+    "capture": {
+      "counts": {
+        "crc24_match": 292,
+        "crc24_mismatch": 8,
+        "fpga_bad": 8,
+        "fpga_good": 292,
+        "good_status_crc24_mismatch": 0,
+        "metadata_agrees": 300,
+        "metadata_mismatches": 0,
+        "radiotap_bad": 8,
+        "radiotap_good": 292,
+        "records": 300,
+        "truncated_records": 0
+      },
+      "frequencies_mhz": {
+        "2442": 300
+      },
+      "pcap_sha256": "6f6b9a799539a5aa7125fab014e40e34754a2d293f67271ba4e4ac5b2e0e36d4",
+      "scope": "Openwifi R2 status/sequence trailer; preserved CRC24 only"
+    },
+    "kernel_drops": 0,
+    "host_utc": 1793029998.944056,
+    "result": "PASS",
+    "scope": "digital PN + monitor RX; no OTA TX/AP qualification"
+  },
+  "environment": {
+    "crc_valid": true,
+    "fit_size": "0x1441d44",
+    "bootdelay_seconds": 3
+  },
+  "sd_test_image_removed": true,
+  "current_operational_state": "MONITOR_RUNNING_SSH_AVAILABLE"
 }

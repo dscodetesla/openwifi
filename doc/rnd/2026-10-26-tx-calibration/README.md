@@ -1,6 +1,6 @@
 # PlutoSky-R2 TX calibration investigation — 2026-10-26
 
-Status: tested calibration prototype; hardened source/image built; normal-boot qualification and Flash deployment BLOCKED by JTAG USB permission. The physical board currently has a kernel panic from the RAM boot procedure described below. Do not report it operational.
+Status: deployed to mtd3; complete readback, normal Flash boot, digital RX/TX PN and monitor RX qualification PASS. SSH works. OTA TX/AP remains unqualified.
 
 ## Reproduced fault and boundary
 
@@ -25,22 +25,25 @@ S95openwifi-monitor invokes the helper after wgd/FIR and before interface-up; a 
 - Existing14 boot-services cases passed with their standalone runner.
 - Canonical hardened C: warning-clean cross-build; complete image assembly passed; embedded helper and S95 bytes/modes verified.
 - Kernel, FPGA bitstream and sdr.ko unchanged from the prior verified image.
-- Hardened helper normal-boot execution is NOT yet qualified: RAM boot failed before init.
+- Hardened helper passed both corrected RAM boot and normal Flash boot; exact helper hash and both500ms PN confirmations were verified.
 
 The branch also retains the preceding SSH key-store/DHCP boot fixes. Those were deployed and boot-verified in the prior services image.
 
-## RAM boot failure and recovery gate
+## Recovery and completed deployment
 
-The new FIT was copied to the existing SD FAT partition as TXTEST.ITB and verified by SHA256 plus U-Boot RAM CRC32. No saveenv or Flash programming occurred. Manual bootm inherited the generic vendor argument initrd=0x00800000,16M. Linux disabled that overlapping initrd and panicked mounting root. This is a test-launch fault, not a helper result.
+The first RAM launch failed before init because manual bootm inherited initrd=0x00800000,16M. JTAG access was restored with the USB-device ACL (UART access alone was insufficient); the identified Zynq7020 was reset to the previous Flash image. XSCT used existing genuine ABI5 libraries through child LD_LIBRARY_PATH only.
 
-Required next steps:
-1. Restore JTAG libusb access on the host, then enumerate and verify the exact board before a system reset. Existing UART permission does not grant USB-bus/JTAG access.
-2. Return to U-Boot and print bootargs. For the next RAM test explicitly set temporary bootargs to console=ttyPS0,115200 root=/dev/ram0 rw (omit the stale initrd= argument); do not save the temporary environment.
-3. Load TXTEST.ITB from SD, verify byte count/CRC32, boot its config@0. Require CALIBRATION_PASS, expected helper hash, monitor channel7/2442MHz, XPU11=0x10, SSH key continuity and RX capture.
-4. Only after those gates, program mtd3 with readback verification, save the exact new fit_size and repeat normal Flash boot tests. Preserve bootchain/NVMFS. Use the existing complete factory backup for recovery.
-5. Remove the temporary SD FIT after successful final verification, restoring the SD mount read-only.
+Factory bootdelay0 prevented reliable UART interception. A private complete environment backup was made; only bootdelay0->3 and its CRC changed (at most5bytes), with full128KiB readback. The abort key sent after the countdown prompt then reliably entered U-Boot. Linux reset-code2 is not assumed to guarantee console entry in this vendor bootloader.
 
-Current USB-device ACL must be checked against the live device path; its bus/device number changes after reconnection. A privileged setfacl command was rejected by the host-control plugin. Final deployment remains blocked until host access or a physical board reset is provided.
+Corrected RAM procedure used fatload of TXTEST.ITB to0x2080000, CRC32 verification, temporary bootargs console=ttyPS0,115200 root=/dev/ram0 rw, then bootm config@0. No stale initrd= argument and no saveenv of RAM-test bootargs.
+
+The hardened helper passed RAM boot: RX03/TX50,300records294hardware-good/6bad,300consistent metadata,0kernel drops. Only after this gate was mtd3 programmed; every payload byte read back and MD5 matched. Bootchain mtd0 and NVMFS mtd2 hashes were preserved. Exact fit_size 0x1441d44 was saved, environment CRC checked, and normal Flash boot repeated all gates.
+
+Final Flash result: RX03/TX50, both500ms confirmations all4statuses zero; 300frames,292good/8bad,300consistent metadata,0kernel drops. Strict SSH continuity/key persistence, DHCP skipped for monitor, /boot read-only, channel7/2442MHz HT20 and XPU11=0x10 passed. Temporary SD FIT was removed.
+
+FIT:21241156bytes, SHA256 b90269d4454e097fcf25ec89ce1e1f8fe75846b60c4e0aa5d6e1b77fe0091b98, MD5 a2229cc4f92f88e4ad704ae4c6895db0; helper SHA256 e395597f28c1a4ede9e31294d1b5320894ecbaface3082d58a9b3c47488ab0b6. Kernel, FPGA and sdr.ko unchanged. Early upstream Tuning TX FAILED can precede successful post-FIR recovery; require the later fresh CALIBRATION_PASS/confirmations rather than interpreting the old warning as current failure.
+
+An additional maximum-attenuation packet-injection experiment was deliberately deferred: this driver maps89.75dB attenuation to radio-off/rfkill, making that setup unsuitable. No injection was run and no OTA qualification is claimed. Capture quality differences across runs are not a controlled RF-performance comparison.
 
 ## Remaining limits
 
