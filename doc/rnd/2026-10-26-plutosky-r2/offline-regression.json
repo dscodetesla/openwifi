@@ -1,0 +1,71 @@
+[
+  {
+    "capture": "abi-final.pcap",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "counts": {
+      "crc24_match": 220,
+      "crc24_mismatch": 80,
+      "fpga_bad": 80,
+      "fpga_good": 220,
+      "good_status_crc24_mismatch": 0,
+      "metadata_agrees": 298,
+      "metadata_mismatches": 2,
+      "radiotap_bad": 82,
+      "radiotap_good": 218,
+      "records": 300,
+      "truncated_records": 0
+    },
+    "frequencies_mhz": {
+      "2442": 300
+    },
+    "pcap_sha256": "3f460422b0ae283c1bfb2f65c69905d39998a2915baa41209cfc6e89559da84c",
+    "scope": "Openwifi R2 status/sequence trailer; preserved CRC24 only"
+  },
+  {
+    "capture": "fcs-ram.pcap",
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "counts": {
+      "crc24_match": 302,
+      "crc24_mismatch": 49,
+      "fpga_bad": 49,
+      "fpga_good": 302,
+      "good_status_crc24_mismatch": 0,
+      "metadata_agrees": 351,
+      "metadata_mismatches": 0,
+      "radiotap_bad": 49,
+      "radiotap_good": 302,
+      "records": 351,
+      "truncated_records": 0
+    },
+    "frequencies_mhz": {
+      "2442": 351
+    },
+    "pcap_sha256": "534d870bcfd39cef9effb4ed883110ef4bdf4b49b9066005f44db669bedb4ab8",
+    "scope": "Openwifi R2 status/sequence trailer; preserved CRC24 only"
+  },
+  {
+    "capture": "final-debug.pcap",
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "counts": {
+      "crc24_match": 248,
+      "crc24_mismatch": 52,
+      "fpga_bad": 52,
+      "fpga_good": 248,
+      "good_status_crc24_mismatch": 0,
+      "metadata_agrees": 300,
+      "metadata_mismatches": 0,
+      "radiotap_bad": 52,
+      "radiotap_good": 248,
+      "records": 300,
+      "truncated_records": 0
+    },
+    "frequencies_mhz": {
+      "2442": 300
+    },
+    "pcap_sha256": "7a0291801c759f9e7800be589bf327d3669a06294e53d42d50d82441283ace4a",
+    "scope": "Openwifi R2 status/sequence trailer; preserved CRC24 only"
+  }
+]
