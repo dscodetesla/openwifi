@@ -584,6 +584,8 @@ static irqreturn_t openwifi_rx_interrupt(int irq, void *dev_id)
       if (skb) {
         skb_put_data(skb,pdata_tmp+16,len);
 
+        /* Each DMA buffer is a new frame; do not inherit FCS/HT/A-MPDU flags. */
+        memset(&rx_status, 0, sizeof(rx_status));
         rx_status.antenna = priv->runtime_rx_ant_cfg;
         // def in ieee80211_rate openwifi_rates 0~11. 0~3 11b(1M~11M), 4~11 11a/g(6M~54M)
         rx_status.rate_idx = wifi_rate_table_mapping[rate_idx];
