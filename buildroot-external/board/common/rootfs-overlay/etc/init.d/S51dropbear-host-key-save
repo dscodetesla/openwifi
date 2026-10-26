@@ -1,21 +1,57 @@
 #!/bin/sh
+set -eu
 
-KEY_STORE=/boot/.openwifi/dropbear
+ROOT=${OPENWIFI_SERVICE_ROOT:-}
+BOOT_DIR=${ROOT}/boot
+KEY_STORE=${BOOT_DIR}/.openwifi/dropbear
+RUNTIME_DIR=${ROOT}/etc/dropbear
+MOUNTS_FILE=${OPENWIFI_SERVICE_MOUNTS:-/proc/mounts}
 
 case "$1" in
-	start)
-		# On first boot there is no saved identity yet. S50dropbear has generated
-		# it in /var/run; save it once for subsequent boots and system updates.
-		[ -d "${KEY_STORE}" ] && exit 0
-		mount -o remount,rw /boot || exit 1
-		mkdir -p "${KEY_STORE}"
-		for key in /etc/dropbear/dropbear_*_host_key; do
-			[ -f "${key}" ] || continue
-			cp "${key}" "${KEY_STORE}/$(basename "${key}")"
-		done
-		sync
-		mount -o remount,ro /boot
-		;;
-	stop) ;;
-	*) echo "Usage: $0 {start|stop}"; exit 1 ;;
+start)
+    pending=0
+    available=0
+    for key in "${RUNTIME_DIR}"/dropbear_*_host_key; do
+        [ -s "${key}" ] || continue
+        available=1
+        [ -s "${KEY_STORE}/$(basename "${key}")" ] || pending=1
+    done
+    [ "${available}" = 1 ] || { echo "No SSH host keys available to persist" >&2; exit 1; }
+    [ "${pending}" = 1 ] || exit 0
+
+    options=$(awk -v point="${BOOT_DIR}" '$2 == point {print $4; exit}' "${MOUNTS_FILE}")
+    restore_ro=0
+    cleanup() {
+        status=$?
+        trap - 0 HUP INT TERM
+        if [ "${restore_ro}" = 1 ]; then
+            mount -o remount,ro "${BOOT_DIR}" || status=1
+        fi
+        exit "${status}"
+    }
+    trap cleanup 0
+    trap 'exit 1' HUP INT TERM
+    case ",${options}," in
+    *,ro,*) mount -o remount,rw "${BOOT_DIR}"; restore_ro=1 ;;
+    *,rw,*) ;;
+    *) echo "BOOT partition is not mounted" >&2; exit 1 ;;
+    esac
+    umask 077
+    mkdir -p "${KEY_STORE}"
+    for key in "${RUNTIME_DIR}"/dropbear_*_host_key; do
+        [ -s "${key}" ] || continue
+        target="${KEY_STORE}/$(basename "${key}")"
+        # Existing identities must never be rotated by a save step.
+        [ ! -e "${target}" ] || continue
+        cp -n "${key}" "${target}"
+    done
+    sync
+    # Report an empty/failed store, including an old zero-byte key, as failure.
+    for key in "${RUNTIME_DIR}"/dropbear_*_host_key; do
+        [ -s "${key}" ] || continue
+        test -s "${KEY_STORE}/$(basename "${key}")"
+    done
+    ;;
+stop) ;;
+*) echo "Usage: $0 {start|stop}" >&2; exit 1 ;;
 esac

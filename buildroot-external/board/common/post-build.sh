@@ -12,3 +12,16 @@ rm -f "${TARGET_DIR}/usr/sbin/openwifi-firmware-updated" \
 
 chmod 0755 "${TARGET_DIR}/etc/init.d/S42plutosky-r2-usb-gadget" \
 	"${TARGET_DIR}/etc/init.d/S43plutosky-r2-usb-console"
+
+
+# Preserve the packaged ISC implementation, and install a small boot-profile
+# wrapper. Re-running post-build must not save the wrapper as its own backend.
+BACKEND="${TARGET_DIR}/usr/libexec/openwifi/dhcp-server"
+BOOT_SCRIPT="${TARGET_DIR}/etc/init.d/S80dhcp-server"
+if [ -f "${BOOT_SCRIPT}" ]; then
+    if ! grep -q '^# openwifi-dhcp-wrapper:' "${BOOT_SCRIPT}"; then
+        install -D -m 0755 "${BOOT_SCRIPT}" "${BACKEND}"
+    fi
+    test -x "${BACKEND}"
+    install -m 0755 "$(dirname "$0")/S80openwifi-dhcp-server" "${BOOT_SCRIPT}"
+fi

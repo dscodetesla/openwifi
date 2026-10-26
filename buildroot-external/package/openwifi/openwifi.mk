@@ -96,6 +96,22 @@ define OPENWIFI_INSTALL_LOCAL_MODULE_COPIES
 		$(TARGET_DIR)/root/openwifi/system_top.bit.bin
 endef
 
+# R2 monitor profile: calibrate after the final 40-MHz FIR configuration.
+ifneq (,$(findstring xilinx/plutosky_r2,$(BR2_LINUX_KERNEL_INTREE_DTS_NAME)))
+define OPENWIFI_BUILD_R2_CALIBRATOR
+	$(TARGET_MAKE_ENV) $(TARGET_CC) $(TARGET_CFLAGS) -std=c11 -Wall -Wextra -Werror \
+		$(@D)/tools/plutosky_r2_calibrate.c $(TARGET_LDFLAGS) \
+		-o $(@D)/tools/plutosky-r2-calibrate
+endef
+OPENWIFI_POST_BUILD_HOOKS += OPENWIFI_BUILD_R2_CALIBRATOR
+
+define OPENWIFI_INSTALL_R2_CALIBRATOR
+	$(INSTALL) -D -m 0755 $(@D)/tools/plutosky-r2-calibrate \
+		$(TARGET_DIR)/usr/sbin/plutosky-r2-calibrate
+endef
+OPENWIFI_POST_INSTALL_TARGET_HOOKS += OPENWIFI_INSTALL_R2_CALIBRATOR
+endif
+
 $(eval $(kernel-module))
 OPENWIFI_POST_INSTALL_TARGET_HOOKS += OPENWIFI_INSTALL_LOCAL_MODULE_COPIES
 $(eval $(generic-package))

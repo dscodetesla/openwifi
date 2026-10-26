@@ -12,6 +12,9 @@ start)
     OPENWIFI_RELOAD_FPGA=0 ./wgd.sh 0
     ip link set dev sdr0 down
     iw dev sdr0 set type monitor
+    # RF/FIR setup can leave a failed automatic timing choice. Require a
+    # confirmed fixed-rate RX/TX PN calibration before starting this profile.
+    /usr/sbin/plutosky-r2-calibrate
     ip link set dev sdr0 up
     # The FPGA can otherwise send automatic ACKs even in monitor mode.
     ./sdrctl dev sdr0 set reg xpu 11 16

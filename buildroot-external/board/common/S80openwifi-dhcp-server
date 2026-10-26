@@ -1,0 +1,12 @@
+#!/bin/sh
+# openwifi-dhcp-wrapper: retain ISC's implementation outside the boot scan.
+set -eu
+ROOT=${OPENWIFI_SERVICE_ROOT:-}
+if [ "${1:-}" = start ] &&
+   [ "${OPENWIFI_DHCP_MANUAL:-0}" != 1 ] &&
+   [ "$(cat "${ROOT}/etc/openwifi-board" 2>/dev/null || true)" = plutosky_r2 ] &&
+   [ -x "${ROOT}/etc/init.d/S95openwifi-monitor" ]; then
+    echo "Skipping DHCP server: PlutoSky-R2 monitor profile"
+    exit 0
+fi
+exec "${ROOT}/usr/libexec/openwifi/dhcp-server" "$@"

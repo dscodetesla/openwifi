@@ -1,21 +1,26 @@
 #!/bin/sh
+set -eu
 
-KEY_STORE=/boot/.openwifi/dropbear
-RUNTIME_DIR=/etc/dropbear
+ROOT=${OPENWIFI_SERVICE_ROOT:-}
+KEY_STORE=${ROOT}/boot/.openwifi/dropbear
+RUNTIME_DIR=${ROOT}/etc/dropbear
 
 case "$1" in
-	start)
-		# Buildroot normally makes /etc/dropbear a symlink to /var/run/dropbear.
-		# Replace it before S50dropbear runs so that S50 does not discard keys
-		# restored from the persistent BOOT partition.
-		[ ! -L "${RUNTIME_DIR}" ] || rm -f "${RUNTIME_DIR}"
-		mkdir -p "${RUNTIME_DIR}"
-		for key in "${KEY_STORE}"/dropbear_*_host_key; do
-			[ -f "${key}" ] || continue
-			cp "${key}" "${RUNTIME_DIR}/$(basename "${key}")"
-			chmod 0600 "${RUNTIME_DIR}/$(basename "${key}")"
-		done
-		;;
-	stop) ;;
-	*) echo "Usage: $0 {start|stop}"; exit 1 ;;
+start)
+    umask 077
+    # Replace Buildroot's runtime symlink before S50 can discard restored keys.
+    [ ! -L "${RUNTIME_DIR}" ] || rm -f "${RUNTIME_DIR}"
+    mkdir -p "${RUNTIME_DIR}"
+    for key in "${KEY_STORE}"/dropbear_*_host_key; do
+        [ -s "${key}" ] || continue
+        cp "${key}" "${RUNTIME_DIR}/$(basename "${key}")"
+        chmod 0600 "${RUNTIME_DIR}/$(basename "${key}")"
+    done
+    # -R generates lazily on first connection, after S51 has already run.
+    if [ ! -s "${RUNTIME_DIR}/dropbear_ed25519_host_key" ]; then
+        dropbearkey -t ed25519 -f "${RUNTIME_DIR}/dropbear_ed25519_host_key" >/dev/null
+    fi
+    ;;
+stop) ;;
+*) echo "Usage: $0 {start|stop}" >&2; exit 1 ;;
 esac

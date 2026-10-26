@@ -1,0 +1,22 @@
+{
+  "status": "HOLD_RAM_BOOT_RECOVERY_REQUIRED",
+  "image": {
+    "bytes": 21241156,
+    "fit_size_hex": "0x1441d44",
+    "sha256": "b90269d4454e097fcf25ec89ce1e1f8fe75846b60c4e0aa5d6e1b77fe0091b98",
+    "md5": "a2229cc4f92f88e4ad704ae4c6895db0",
+    "crc32": "978300f1",
+    "helper_sha256": "e395597f28c1a4ede9e31294d1b5320894ecbaface3082d58a9b3c47488ab0b6",
+    "kernel_fpga_sdr_module_unchanged": true,
+    "cpio_helper_s95_verified": true,
+    "dfu_crc_valid": true
+  },
+  "prototype_calibration_runs_passed": 4,
+  "canonical_hardened_helper_boot": "NOT_RUN_INITRD_BOOTARG_PANIC",
+  "tx_full_grid_confirmed_points": 77,
+  "selection_test_patterns": 65536,
+  "boot_service_cases_passed": 14,
+  "ota_tx_ap": "NOT_TESTED",
+  "flash_programming_this_investigation": false,
+  "root_mechanism": "invalid/unstable RX clock-delay selection breaks subsequent TX PN synchronization; physical clock/settling cause unresolved"
+}

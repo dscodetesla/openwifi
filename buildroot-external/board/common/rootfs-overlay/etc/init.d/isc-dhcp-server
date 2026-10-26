@@ -1,3 +1,5 @@
 #!/bin/sh
-# Compatibility name used by the upstream OpenWiFi fosdem*.sh scripts.
-exec /etc/init.d/S80dhcp-server "$@"
+# Explicit AP operations keep working after R2 monitor skips DHCP at boot.
+OPENWIFI_DHCP_MANUAL=1
+export OPENWIFI_DHCP_MANUAL
+exec "${OPENWIFI_SERVICE_ROOT:-}/etc/init.d/S80dhcp-server" "$@"
