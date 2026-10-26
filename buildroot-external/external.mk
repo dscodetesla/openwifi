@@ -34,3 +34,9 @@ define OPENWIFI_LINUX_INSTALL_DTS
 endef
 
 LINUX_POST_PATCH_HOOKS += OPENWIFI_LINUX_INSTALL_DTS
+
+# X99MG: dtc 1.7.2 predates GCC 15 defaulting to C23.
+# glibc C23 generic string functions preserve const, which old dtc rejects
+# under -Werror. Keep the prior C17 dialect for this host tool only.
+# https://gcc.gnu.org/gcc-15/porting_to.html#c23
+HOST_DTC_MAKE_OPTS += EXTRA_CFLAGS="$(HOST_CFLAGS) -fPIC -std=gnu17"

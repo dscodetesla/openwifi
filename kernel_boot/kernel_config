@@ -7068,3 +7068,6 @@ CONFIG_ARCH_USE_MEMTEST=y
 #
 # end of Rust hacking
 # end of Kernel hacking
+
+# PlutoSky-R2: preserve the vendor UART recovery path into U-Boot.
+CONFIG_XILINX_RESET_CODE=y

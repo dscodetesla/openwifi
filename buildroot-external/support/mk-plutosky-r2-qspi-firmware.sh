@@ -120,7 +120,8 @@ fit = pathlib.Path(sys.argv[1]).read_bytes()
 # DFU suffix. Its firmware alternate writes it at QSPI offset 0x00200000.
 suffix = struct.pack("<HHHH3sB", 0xFFFF, 0xB673, 0x0456, 0x0100, b"UFD", 16)
 payload = fit + suffix
-crc = binascii.crc32(payload) & 0xFFFFFFFF
+# DFU stores the running reflected CRC state without the final XOR.
+crc = (binascii.crc32(payload) ^ 0xFFFFFFFF) & 0xFFFFFFFF
 pathlib.Path(sys.argv[2]).write_bytes(payload + struct.pack("<I", crc))
 PY
 

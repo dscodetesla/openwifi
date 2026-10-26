@@ -352,8 +352,8 @@
 				adi,aux-dac2-default-value-mV = <0x00>;
 				adi,aux-dac2-rx-delay-us = <0x00>;
 				adi,aux-dac2-tx-delay-us = <0x00>;
-				en_agc-gpios = <0x09 0x42 0x00>;
-				reset-gpios = <0x09 0x43 0x00>;
+				en_agc-gpios = <0x09 0x62 0x00>;
+				reset-gpios = <0x09 0x64 0x00>;
 				adi,2rx-2tx-mode-enable;
 				phandle = <0x17>;
 			};

@@ -5,3 +5,8 @@ BR2_TARGET_ROOTFS_CPIO_GZIP=y
 # mk-plutosky-r2-qspi-firmware.sh packs the QSPI image as a FIT, which mkimage
 # only understands when it is built with FIT support.
 BR2_PACKAGE_HOST_UBOOT_TOOLS_FIT_SUPPORT=y
+
+# Keep the same ADI commit without fetching the entire Linux Git history.
+# BR2_LINUX_KERNEL_CUSTOM_GIT is not set
+BR2_LINUX_KERNEL_CUSTOM_TARBALL=y
+BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION="https://github.com/analogdevicesinc/linux/archive/40201abd70d8f7848547a09fc7e366fba064483c.tar.gz"

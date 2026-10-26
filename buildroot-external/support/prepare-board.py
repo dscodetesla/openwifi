@@ -143,6 +143,11 @@ def extract_ps7_patch(
         if not diagnostics.is_file():
             die(f"missing E200 SPL diagnostics patch: {diagnostics}")
         shutil.copy2(diagnostics, patch.parent / diagnostics.name)
+    if board_name == "plutosky_r2":
+        padding = external / "patches" / "uboot" / "plutosky_r2" / "0002-spl-align-with-byte-padding.patch"
+        if not padding.is_file():
+            die(f"missing R2 SPL alignment patch: {padding}")
+        shutil.copy2(padding, patch.parent / padding.name)
     return patch.parent
 
 

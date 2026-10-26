@@ -1,0 +1,37 @@
+#!/bin/sh
+# PlutoSky-R2 deployment profile: receive monitoring on 2.4 GHz.
+set -eu
+
+case "${1:-start}" in
+start)
+    [ "$(cat /etc/openwifi-board)" = plutosky_r2 ] || exit 0
+    mkdir -p /var/log
+    exec >>/var/log/openwifi-monitor.log 2>&1
+    echo "Starting Openwifi monitor: channel 7, HT20"
+    cd /root/openwifi
+    OPENWIFI_RELOAD_FPGA=0 ./wgd.sh 0
+    ip link set dev sdr0 down
+    iw dev sdr0 set type monitor
+    ip link set dev sdr0 up
+    # The FPGA can otherwise send automatic ACKs even in monitor mode.
+    ./sdrctl dev sdr0 set reg xpu 11 16
+    iw dev sdr0 set channel 7 HT20
+    ./agc_settings.sh 1
+    ./sdrctl dev sdr0 get reg xpu 11
+    test "$(cat /sys/class/net/sdr0/type)" = 803
+    iw dev sdr0 info
+    ;;
+stop)
+    if [ -e /sys/class/net/sdr0 ]; then
+        ip link set dev sdr0 down
+    fi
+    ;;
+restart)
+    "$0" stop
+    "$0" start
+    ;;
+*)
+    echo "Usage: $0 {start|stop|restart}" >&2
+    exit 2
+    ;;
+esac
