@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "observed_date": "2026-10-27",
+  "execution_order": [
+    "X99MG",
+    "dell-T3500",
+    "desk-tyan"
+  ],
+  "hosts": [
+    {
+      "name": "X99MG",
+      "role": "canonical build and currently attached R2 owner",
+      "wan": "Wi-Fi MT7921U",
+      "board_management": "dedicated Ethernet; DEBUG UART/JTAG",
+      "commands": {
+        "python3": true,
+        "git": true,
+        "nmcli": true,
+        "ssh": true,
+        "iw": false,
+        "uv": true
+      },
+      "tunnel_client_in_path": false,
+      "tunnel_provisioning": "not established by PATH probe; existing Commander direct calls work"
+    },
+    {
+      "name": "dell-T3500",
+      "role": "second independent host qualification after X99MG; not yet a verified R2 attachment",
+      "wan": "Wi-Fi RTL8822BU",
+      "commands": {
+        "python3": true,
+        "git": true,
+        "nmcli": true,
+        "ssh": true,
+        "iw": false,
+        "uv": true
+      },
+      "tunnel_client_in_path": false
+    },
+    {
+      "name": "desk-tyan",
+      "role": "third host; wired WAN and spare Wi-Fi receiver candidate",
+      "wan": "Ethernet",
+      "spare_wifi": "RTL8812AU using rtw88_8812au in previous inventory; WFB injection unqualified",
+      "other_sdr": "ADALM-PLUTO USB present; must not confuse with R2",
+      "commands": {
+        "python3": true,
+        "git": true,
+        "nmcli": true,
+        "ssh": true,
+        "iw": false,
+        "uv": false
+      },
+      "tunnel_client_in_path": false,
+      "observed_user_services": {
+        "cad-cae-tunnel.service": "active",
+        "eda-fpga-tunnel.service": "active",
+        "hermes-gateway.service": "active"
+      }
+    }
+  ],
+  "notes": [
+    "No network profiles or services changed during inventory.",
+    "Absence from PATH does not prove tunnel client absent on disk.",
+    "Active service is not proof of ChatGPT tool discovery.",
+    "Do not copy host device paths, MACs, IP assumptions or credentials between profiles."
+  ]
+}

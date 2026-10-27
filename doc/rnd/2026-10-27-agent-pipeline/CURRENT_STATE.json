@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "documented_at": "2026-10-27",
+  "timezone": "Europe/Kyiv",
+  "board_observation_date": "2026-10-26",
+  "live_board_probe_this_operation": false,
+  "baseline": "manifest.json",
+  "mode": "monitor",
+  "frequency_mhz": 2442,
+  "width_mhz": 20,
+  "auto_ack": false,
+  "delays": {
+    "rx": "0x03",
+    "tx": "0x50"
+  },
+  "rate_hz": 40000000,
+  "fir_rx": 1,
+  "fir_tx": 1,
+  "gates": {
+    "flash_readback": "PASS",
+    "normal_flash_boot": "PASS",
+    "digital_pn": "PASS",
+    "monitor_rx": "PASS",
+    "independent_ota_beacon": "PASS",
+    "ap_association": "NOT_CONFIRMED_TIMEOUT_12S",
+    "ap_retry": "NOT_RUN_SCAN_PRECONDITION",
+    "ip_ping": "NOT_RUN",
+    "wfb_build": "NOT_RUN",
+    "wfb_e2e": "NOT_RUN",
+    "long_rx_stability": "OPEN",
+    "native_usb": "OPEN",
+    "persistent_time_sync": "OPEN"
+  },
+  "latest_post_ota_rx": {
+    "frames": 100,
+    "hardware_good": 61,
+    "hardware_bad": 39,
+    "metadata_agree": 100,
+    "kernel_drops": 0
+  },
+  "historical_tx_packets_total": 35,
+  "latest_cleanup": {
+    "hostapd_stopped": true,
+    "monitor_restored": true,
+    "ack_disabled": true,
+    "uplink_restored": true,
+    "flash_unchanged": true
+  },
+  "evidence_local_only": {
+    "ota": "evidence/ota-ap-20261026T170215Z",
+    "calibration": "evidence/tx-rootcause-20261026T145038Z"
+  },
+  "physical_timing_root_cause": "UNRESOLVED",
+  "next_action": "fresh read-only board identity/profile probe, then dedicated-peer synchronized AP trace or separate WFB cross-build; do not reflash unchanged qualified image"
+}

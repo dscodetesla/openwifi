@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-27",
+  "timezone": "Europe/Kyiv",
+  "scope": "documentation checkpoint and read-only preflight; no new SDR runtime qualification",
+  "tests": {
+    "preflight_unittest_cases": 6,
+    "result": "PASS",
+    "cases": [
+      "exact bytes accepted",
+      "same-size tamper rejected",
+      "truncation rejected",
+      "manifest size/hex conflict rejected",
+      "missing file fails without path disclosure",
+      "non-string SHA rejected"
+    ]
+  },
+  "hosts": {
+    "X99MG": {
+      "local_preflight": "PASS",
+      "qualified_fit_bytes": 21241156,
+      "qualified_fit_sha256": "b90269d4454e097fcf25ec89ce1e1f8fe75846b60c4e0aa5d6e1b77fe0091b98",
+      "fit_match": true
+    },
+    "dell-T3500": {
+      "local_preflight": "PASS",
+      "fit": "NOT_CHECKED",
+      "r2_attachment": "NOT_VERIFIED"
+    },
+    "desk-tyan": {
+      "local_preflight": "PASS",
+      "fit": "NOT_CHECKED",
+      "r2_attachment": "NOT_VERIFIED"
+    }
+  },
+  "firmware_sources_compared": 24,
+  "firmware_source_mismatches": 0,
+  "new_firmware_build": "NOT_RUN",
+  "new_flash_write": "NOT_RUN",
+  "new_rf_test": "NOT_RUN",
+  "new_tunnel_configuration": "NOT_RUN",
+  "pipeline_unattended_end_to_end": "NOT_IMPLEMENTED_OR_QUALIFIED",
+  "limitations": [
+    "Historical board evidence only; no fresh hardware probe in this documentation operation.",
+    "Full multi-host deployment needs physical identity/handoff and per-host qualification.",
+    "AP and WFB acceptance remain open."
+  ]
+}

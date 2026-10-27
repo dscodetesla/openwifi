@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "head": "e387135ead1e960da429e5bf4312ffb8a1b13e84",
+  "files": {
+    "AI_AGENT_GUIDE.md": {
+      "type": "file",
+      "size": 20986,
+      "sha256": "1267edaf2b982e84016509067ca4396decfcfa2f8ebaffe6f5907f38bbd78602"
+    },
+    "CURRENT_STATE.json": {
+      "type": "file",
+      "size": 1556,
+      "sha256": "0289f7ea5b3f444fd680780922e4a9c60df1c630d20880f14b683f6e7fc2b088"
+    },
+    "FINDINGS.md": {
+      "type": "file",
+      "size": 8542,
+      "sha256": "45113a88cf006f5bdad7787c431938b373a12a732f49e5683bfa650b73798142"
+    },
+    "HOSTS.json": {
+      "type": "file",
+      "size": 2003,
+      "sha256": "5863fa422468f6930be4e0459167da92b787b3b70e9b6eaec8b90f3e95a5071a"
+    },
+    "INTEGRATION.md": {
+      "type": "file",
+      "size": 8565,
+      "sha256": "849d2c2b01baab8d692ae24e3e1d478392bbf1e86b492a61526b0e834c755a06"
+    },
+    "PlutoSky_R2_OTA_AP_Test_20261026.md": {
+      "type": "file",
+      "size": 6717,
+      "sha256": "f75f6a999123741a885665d285df19137aad3834def08b0ae1f328c2aaff19a4"
+    },
+    "PlutoSky_R2_WFB_NG_OFDM_Assessment_20261026.md": {
+      "type": "file",
+      "size": 8067,
+      "sha256": "49cb43100464525e73ce1c0d3c950e3cc4d706b42b8556b1e83e1c179365ad66"
+    },
+    "README.md": {
+      "type": "file",
+      "size": 2039,
+      "sha256": "3b4e497d3ab234b4fc4ddc67d727d0db00686096ecc2ea92998d94f13e901b20"
+    },
+    "manifest.json": {
+      "type": "file",
+      "size": 1084,
+      "sha256": "b0031affe7353622df5c801673ea08613b21d51db4ca0b6f13bb752a86c5e749"
+    },
+    "preflight.py": {
+      "type": "file",
+      "size": 3707,
+      "sha256": "b69c0382d60a3dbc65610f63812caab3e23df007ae831ff58093222e9cb3eda7"
+    },
+    "source-comparison.json": {
+      "type": "file",
+      "size": 6047,
+      "sha256": "5eac929b41697bec7747c80e9ad623fd22d763afe4826b7fe5929f4aadfaedca"
+    },
+    "test_preflight.py": {
+      "type": "file",
+      "size": 2240,
+      "sha256": "25ed329ea361ef3738aec1038d171d46cf89cd06b0ecd905954e46b744f5c5d8"
+    },
+    "validation.json": {
+      "type": "file",
+      "size": 1508,
+      "sha256": "827f55ab187836592502745f2282b82106ff056009211acc04196af82f37af0d"
+    }
+  },
+  "deleted_tracked": [],
+  "exclusions": [
+    "Git-ignored outputs",
+    ".git metadata",
+    "manifest itself"
+  ],
+  "limitation": "Per-file consistency; not an atomic filesystem snapshot"
+}

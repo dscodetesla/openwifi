@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "profile": "plutosky-r2-40mhz-post-fir",
+  "source": {
+    "openwifi_calibration_commit": "d8381c449692443d7e2c0b26a497a6fc6c51635a",
+    "openwifi_base": "9d4d1b0030df7756a2cf99458f970af7cb66f53f",
+    "hardware_image_commit": "64f27c5f897a807cf58fc383dd4b08c728abc07c",
+    "vendor_commit": "a8a7a970b8261217aca77c1a31c400b9fb850259",
+    "linux_commit": "40201abd70d8f7848547a09fc7e366fba064483c",
+    "buildroot_commit": "ff3b00e7d01894963ce05f8cc9077ac0d61d4ad9"
+  },
+  "fit": {
+    "bytes": 21241156,
+    "fit_size_hex": "0x1441d44",
+    "sha256": "b90269d4454e097fcf25ec89ce1e1f8fe75846b60c4e0aa5d6e1b77fe0091b98",
+    "md5": "a2229cc4f92f88e4ad704ae4c6895db0",
+    "crc32": "978300f1"
+  },
+  "helper_sha256": "e395597f28c1a4ede9e31294d1b5320894ecbaface3082d58a9b3c47488ab0b6",
+  "sdr_module_sha256": "9a92ea9f5c87a353b9a4d3bb95ef8c56ff7485f110a6101f1223ff2d3943732f",
+  "wfb_research_commit": "89f50a361b5bc78f6740e832cdf1680a6ea9a819",
+  "qualification_scope": "historical fixed-profile deployment; newly built bytes require fresh qualification"
+}
