@@ -57,7 +57,7 @@ cd openwifi-agent
 git checkout --detach d8381c449692443d7e2c0b26a497a6fc6c51635a
 git submodule update --init buildroot
 git -C buildroot rev-parse HEAD
-# Перевірити manifest.buildroot_commit перед build.
+# Перевірити manifest.source.buildroot_commit перед build.
 ```
 
 Документацію цього checkpoint читати з її власного точного commit; source pin вище навмисно окремий від doc revision. Отримати openwifi-hw-img 64f27c5f897a807cf58fc383dd4b08c728abc07c в sibling dir; перевірити наявність boards/plutosky_r2/sdk/system_top.xsa. Не підміняти XSA іншою моделлю. Vendor reference a8a7... лише еталон board, не наш deployed rootfs.

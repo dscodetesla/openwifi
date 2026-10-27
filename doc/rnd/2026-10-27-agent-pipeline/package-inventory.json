@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "head": "e387135ead1e960da429e5bf4312ffb8a1b13e84",
+  "head": "a98963dd9299372973d7e08917431a4fd291855d",
   "files": {
     "AI_AGENT_GUIDE.md": {
       "type": "file",
-      "size": 20986,
-      "sha256": "1267edaf2b982e84016509067ca4396decfcfa2f8ebaffe6f5907f38bbd78602"
+      "size": 20993,
+      "sha256": "e892f220c26dffc69250302f923dfe8b2e25f70e145a4e6b139f5fb8374ae35b"
     },
     "CURRENT_STATE.json": {
       "type": "file",
