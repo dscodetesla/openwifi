@@ -1,0 +1,40 @@
+{
+  "schema": "plutosky-rnd-state-v1",
+  "date": "2026-10-30",
+  "timezone": "Europe/Kyiv",
+  "scope": "PlutoSky-R2 strong-interference and supply-noise R&D; host-assisted packet gateway",
+  "user_equipment": "SDR and hosts only",
+  "source_baseline": "9d4d1b0030df7756a2cf99458f970af7cb66f53f plus preserved dirty changes",
+  "gates": {
+    "live_identity_readonly": "PASS",
+    "snapshot_files": "PASS",
+    "synthetic_quantization": "PASS_SIMULATION_ONLY",
+    "I8_hardware": "NOT_RUN",
+    "known_stimulus_RF_RX": "NOT_RUN",
+    "WFB_forwarder_injector_build": "NOT_RUN",
+    "absolute_sensitivity_blocking": "BLOCKED_NO_CALIBRATED_FIXTURE",
+    "power_ripple": "BLOCKED_NO_OSCILLOSCOPE",
+    "PSU_causality": "NOT_RUN",
+    "dual_RX_decoder": "NOT_RUN",
+    "new_firmware_QSPI_SD": "NOT_RUN",
+    "physical_verified_prototype": "NOT_QUALIFIED"
+  },
+  "next_action": "Qualify independent WFB peer and bounded RX-to-LAN baseline before changing RF gain/precision; obtain calibrated fixture for absolute claims",
+  "blocked_only": [
+    "absolute RF acceptance",
+    "ripple certification",
+    "board modification without verified power/RF limits"
+  ],
+  "hardware_mutations": [],
+  "uncertainties": [
+    "actual interference spectral/level/duty envelope",
+    "board-level safe RF input/output limits",
+    "PSU/cable/regulator identity and rails",
+    "application latency/bitrate/FPS",
+    "current bitstream binding to audited XSA",
+    "RX zero-delta cause without known stimulus"
+  ],
+  "artifact_owner": "root",
+  "rollback": "existing firmware, calibration and dirty sources unchanged",
+  "source_reproducibility": "identity hashes recorded; complete dirty-source freeze required before firmware candidate"
+}

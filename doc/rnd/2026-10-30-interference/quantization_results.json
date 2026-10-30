@@ -1,0 +1,200 @@
+{
+  "schema": "synthetic-quantization-v1",
+  "seed": 20261030,
+  "nfft": 64,
+  "symbols": 4096,
+  "active_bins": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "noise_db_relative_wanted": -35,
+  "blocker_bin": 30,
+  "status": "SIMULATION_ONLY",
+  "limitations": [
+    "Not a full IEEE802.11 modem or measured AD936x model",
+    "No analog compression, AGC timing, phase noise, clock jitter or PSU ripple model",
+    "Ideal FFT synchronization; no channel or packet FEC; no CP needed in this ideal channel",
+    "ideal_peak_rescale knows the whole capture peak; not a realizable AGC claim",
+    "Strong tone lies outside active bins but inside the sampled band"
+  ],
+  "results": [
+    {
+      "blocker_dbc": null,
+      "gain_mode": "fixed",
+      "bits": 12,
+      "gain": 2.010279821647821,
+      "clipped_fraction": 0.0,
+      "evm_db": -35.88339783269086
+    },
+    {
+      "blocker_dbc": null,
+      "gain_mode": "fixed",
+      "bits": 8,
+      "gain": 2.010279821647821,
+      "clipped_fraction": 0.0,
+      "evm_db": -33.74804473255361
+    },
+    {
+      "blocker_dbc": null,
+      "gain_mode": "ideal_peak_rescale",
+      "bits": 12,
+      "gain": 2.0231412774904314,
+      "clipped_fraction": 0.0,
+      "evm_db": -35.88309333126543
+    },
+    {
+      "blocker_dbc": null,
+      "gain_mode": "ideal_peak_rescale",
+      "bits": 8,
+      "gain": 2.0231412774904314,
+      "clipped_fraction": 0.0,
+      "evm_db": -33.77037266645014
+    },
+    {
+      "blocker_dbc": 0,
+      "gain_mode": "fixed",
+      "bits": 12,
+      "gain": 2.010279821647821,
+      "clipped_fraction": 0.0,
+      "evm_db": -35.882937797783626
+    },
+    {
+      "blocker_dbc": 0,
+      "gain_mode": "fixed",
+      "bits": 8,
+      "gain": 2.010279821647821,
+      "clipped_fraction": 0.0,
+      "evm_db": -33.75145396614946
+    },
+    {
+      "blocker_dbc": 0,
+      "gain_mode": "ideal_peak_rescale",
+      "bits": 12,
+      "gain": 1.7422003650049738,
+      "clipped_fraction": 0.0,
+      "evm_db": -35.87978833957903
+    },
+    {
+      "blocker_dbc": 0,
+      "gain_mode": "ideal_peak_rescale",
+      "bits": 8,
+      "gain": 1.7422003650049738,
+      "clipped_fraction": 0.0,
+      "evm_db": -33.24968726821762
+    },
+    {
+      "blocker_dbc": 20,
+      "gain_mode": "fixed",
+      "bits": 12,
+      "gain": 2.010279821647821,
+      "clipped_fraction": 1.0,
+      "evm_db": 4.060155915247493
+    },
+    {
+      "blocker_dbc": 20,
+      "gain_mode": "fixed",
+      "bits": 8,
+      "gain": 2.010279821647821,
+      "clipped_fraction": 1.0,
+      "evm_db": 4.0602762544453626
+    },
+    {
+      "blocker_dbc": 20,
+      "gain_mode": "ideal_peak_rescale",
+      "bits": 12,
+      "gain": 0.5540661485582582,
+      "clipped_fraction": 0.0,
+      "evm_db": -35.75775224826974
+    },
+    {
+      "blocker_dbc": 20,
+      "gain_mode": "ideal_peak_rescale",
+      "bits": 8,
+      "gain": 0.5540661485582582,
+      "clipped_fraction": 0.0,
+      "evm_db": -26.16994448218793
+    },
+    {
+      "blocker_dbc": 40,
+      "gain_mode": "fixed",
+      "bits": 12,
+      "gain": 2.010279821647821,
+      "clipped_fraction": 1.0,
+      "evm_db": 7.831781651719534
+    },
+    {
+      "blocker_dbc": 40,
+      "gain_mode": "fixed",
+      "bits": 8,
+      "gain": 2.010279821647821,
+      "clipped_fraction": 1.0,
+      "evm_db": 7.83179096378495
+    },
+    {
+      "blocker_dbc": 40,
+      "gain_mode": "ideal_peak_rescale",
+      "bits": 12,
+      "gain": 0.06905788881832528,
+      "clipped_fraction": 0.0,
+      "evm_db": -31.012739407700195
+    },
+    {
+      "blocker_dbc": 40,
+      "gain_mode": "ideal_peak_rescale",
+      "bits": 8,
+      "gain": 0.06905788881832528,
+      "clipped_fraction": 0.0,
+      "evm_db": -8.577652323689694
+    }
+  ]
+}

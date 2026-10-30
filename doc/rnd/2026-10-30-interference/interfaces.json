@@ -1,0 +1,15 @@
+{
+  "schema": "rf-gateway-contract-v1",
+  "status": "DESIGN_NOT_DEPLOYED",
+  "board_owner": "one root operator; subagents read-only for physical target",
+  "interfaces": [
+    {"id":"RF_IN","producer":"antenna/fixture","consumer":"RF preselector/AD936x","impedance_ohms":50,"frequency_hz":null,"board_safe_input_dbm":null,"gain_filter_selection":"OPEN; no fabricated BOM","verification":"board documentation and calibrated fixture"},
+    {"id":"RFIC_PL","producer":"AD936x","consumer":"FPGA Openwifi","sample_rate_readback_hz":40000000,"container":"verify exact HDL alignment/signedness/guard bits before changing precision","dual_packet_decoders":false,"verification":"audited XSA plus future bitstream binding/PN tests"},
+    {"id":"PL_ARM","producer":"Openwifi PHY/MAC","consumer":"Linux driver","rx_buffer_bytes":2048,"format":"packet plus hardware metadata; ABI must match","timing_owner":"FPGA SIFS/ACK/CCA; LAN host not real-time replacement","verification":"DT/register/DMA/IRQ and packet tests"},
+    {"id":"SDR_LAN_HOST","producer":"WFB forwarder","consumer":"host aggregator","format":"pinned WFB payload+wrxfwd metadata; NOT IQ or full radiotap","wire_pin":"89f50a361b5bc78f6740e832cdf1680a6ea9a819","rx_port":null,"tx_port":null,"mtu_gate":"actual datagram size; no assumed jumbo RF support","verification":"cross-build+independent peer hash/FEC/auth"},
+    {"id":"RAW_IQ_OPTION","producer":"filtered/scaled FPGA IQ branch","consumer":"host IQ receiver","status":"NOT_IMPLEMENTED","formats":["I16Q16 baseline container","I8Q8 candidate"],"required_fields":["wire_version","signedness","endianness","scale","rounding","saturation","channel_order","sample_counter","loss_flags"],"verification":"quantizer model then actual samples/host demod; fail closed on mismatch"},
+    {"id":"APPLICATIONS","producer":"host services","consumer":"LAN video/MAVLink/ArduTracking clients","latency_loss_limits":null,"tracking_protocol":null,"command_owner":"one command writer","verification":"sequence+deadline+no-loop tests"},
+    {"id":"MESH","producer":"qualified Ethernet-style L2 bearer","consumer":"host batman-adv","bearer":null,"status":"OPEN","verification":"MTU+3-node routing/loop/recovery; raw monitor or IPv4 TUN alone insufficient"},
+    {"id":"POWER","producer":"verified PSU/cable","consumer":"exact board input/regulators","input_voltage_v":null,"ripple_limit":null,"reverse_blocking":null,"verification":"schematic+DC/ripple/startup/loadstep; SDR telemetry not scope replacement"}
+  ]
+}

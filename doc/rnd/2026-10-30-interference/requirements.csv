@@ -1,0 +1,18 @@
+id,requirement,value_or_gap,origin,verification,status
+R01,Board target,PlutoSky-R2 separate from original7020,user+live,board identity and artifact manifest,PASS_SCOPE_IDENTITY
+R02,RF operating range,TBD final bands and interferer frequencies;2442MHz current baseline,live+unknown,spectrum survey and peer compatibility,OPEN
+R03,Waveform,Openwifi HT20 OFDM;WFB-NG candidate,user+baseline,independent peer payload/FEC/auth,NOT_RUN
+R04,TX/RX modes,2 physical chains;one packet RX/TX PHY in audited XSA;concurrent dual modem unproven,source/XSA,RTL tracing+resource/timing+RF overlap tests,OPEN
+R05,Video,720p;codec/FPS/bitrate/GOP/deadline TBD,user,host decode plus RTP loss/latency under load,NOT_RUN
+R06,Gateway ownership,SDR packet forwarding/injection;FEC/crypto/MAVLink/tracking on LAN host,user,protocol and process ownership+E2E,NOT_RUN
+R07,Mesh,batman-adv needs Ethernet-style L2;bearer TBD,user+protocol,3-node topology+loop/MTU/recovery,OPEN
+R08,Sensitivity and dynamic range,TBD board-level PER criterion and uncertainty;no calibrated source,unknown,wanted-only plus wanted/blocker calibrated sweep,BLOCKED_ABSOLUTE
+R09,TX RF power and safe RX input,TBD board/fitted-chip/front-end limits;advertised txpower not measurement,unknown,board docs+calibrated conducted measurement,BLOCKED_ABSOLUTE
+R10,IQ precision,retain baseline precision;I8 experimental branch only,engineering decision,paired I12/I8 sample tests+host demodulation,NOT_RUN_HARDWARE
+R11,LAN,1000Mbps/full negotiated;goodput/latency/drop TBD,live,readback then controlled UDP load,OPEN_GOODPUT
+R12,Power rails and ripple,TBD board schematic source cable limits and BW;only SDR/hosts available,user+unknown,rail identification+oscilloscope DC/ripple/loadstep,BLOCKED_MEASUREMENT
+R13,Thermal and mechanics,TBD ambient/component limits/enclosure/dimensions,unknown,board docs+temperature measurement+mechanical check,OPEN
+R14,Clock and calibration,40MSPS readback;preserve known calibration;actual noise/jitter TBD,live+history,PN perchain+qualified RF/clock measurements,OPEN_RF
+R15,Latency and loss,application deadlines and acceptable loss TBD,user,sequence IDs+P50/P95/P99+burst/gaps,OPEN
+R16,Persistent deployment,QSPI and SD qualification separate;RAM not persistent proof,user,exact-image hash/readback+normal boot,NOT_RUN_THIS_ITERATION
+R17,Interference environment,strong nearby interference/noise expected;level spectral offsets duty cycle TBD,user,relative survey now;calibrated blocker fixture later,OPEN

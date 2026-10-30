@@ -1,0 +1,28 @@
+{
+  "host_utc": "2026-10-30T11:56:52.936643+00:00",
+  "HEAD": "9d4d1b0030df7756a2cf99458f970af7cb66f53f",
+  "status": " A buildroot-external/board/common/S80openwifi-dhcp-server\n M buildroot-external/board/common/post-build.sh\n M buildroot-external/board/common/rootfs-overlay/etc/init.d/S42plutosky-r2-usb-gadget\n M buildroot-external/board/common/rootfs-overlay/etc/init.d/S43plutosky-r2-usb-console\n M buildroot-external/board/common/rootfs-overlay/etc/init.d/S49dropbear-host-key\n M buildroot-external/board/common/rootfs-overlay/etc/init.d/S51dropbear-host-key-save\n A buildroot-external/board/common/rootfs-overlay/etc/init.d/S95openwifi-monitor\n M buildroot-external/board/common/rootfs-overlay/etc/init.d/isc-dhcp-server\n M buildroot-external/configs/openwifi_plutosky_r2.fragment\n M buildroot-external/external.mk\n M buildroot-external/package/openwifi/openwifi.mk\n A buildroot-external/patches/uboot/plutosky_r2/0002-spl-align-with-byte-padding.patch\n M buildroot-external/support/mk-plutosky-r2-qspi-firmware.sh\n M buildroot-external/support/prepare-board.py\n M driver/sdr.c\n M driver/sdr.h\n M kernel_boot/boards/plutosky_r2/devicetree.dts\n M kernel_boot/kernel_config\n?? doc/rnd/\n?? tests/\n?? tools/plutosky_r2_calibrate.c\n?? tools/rnd/\n",
+  "tracked_diff_sha256": "9472a8ef91d69342a167c2d590fdd1d3285c7586d98698bc2c0c94306861cd75",
+  "files_sha256": {
+    "buildroot-external/board/common/S80openwifi-dhcp-server": "65ad46ee33f862ba692b71481d916916f8eb11f5d92162901870c1b0c95d138d",
+    "buildroot-external/board/common/post-build.sh": "818c1ccbff55f567d3be89ca974a8081a36c6142749d7ee7632c9f0e8f6b733a",
+    "buildroot-external/board/common/rootfs-overlay/etc/init.d/S42plutosky-r2-usb-gadget": "b48da4ca065fc743abb634833aa196eff7f3bf83a2d8bdfa0991c0f3eab3f6c9",
+    "buildroot-external/board/common/rootfs-overlay/etc/init.d/S43plutosky-r2-usb-console": "464b6ffe631da1f122ac3038aeff0df80740c3b70ded2ef03449cb7646fefa55",
+    "buildroot-external/board/common/rootfs-overlay/etc/init.d/S49dropbear-host-key": "7b1c8083a1e3bf8f9abe7417024d288de3f64c7204a1ed6351a124f1c80f021d",
+    "buildroot-external/board/common/rootfs-overlay/etc/init.d/S51dropbear-host-key-save": "bfb4acdf27ec53c463b768b10950a7dd2d929c5270ec94a2e0e8de59f4601925",
+    "buildroot-external/board/common/rootfs-overlay/etc/init.d/S95openwifi-monitor": "9bae50edfc7b1add9553dfa3d2df1beae5d8ba5ad65e434901aa31ac0bacabb9",
+    "buildroot-external/board/common/rootfs-overlay/etc/init.d/isc-dhcp-server": "5747985bec1e68fe99bd6e89c2cdfa7f468e955df39db0c795bfd6e3057af516",
+    "buildroot-external/configs/openwifi_plutosky_r2.fragment": "a6490776eb6a7772b72b1d4b67b1a09e6be4a5fe857cea78705b5ec5ef94bfa8",
+    "buildroot-external/external.mk": "f5c1e9d6ec9c131466decbb0d0eda78b8d3b37630b1ff7ddc51b05ac33fdae2e",
+    "buildroot-external/package/openwifi/openwifi.mk": "5d9d30eea99c1f00c8d77756bc3208ae9779d3db963c22520b4ffc0f278e4a75",
+    "buildroot-external/patches/uboot/plutosky_r2/0002-spl-align-with-byte-padding.patch": "7f24225280cdc1703cd959d65fe4a78c86512074d053a30f22ba497c341c6168",
+    "buildroot-external/support/mk-plutosky-r2-qspi-firmware.sh": "a0f69efe423a3e774347e1bb6dc359ee191de69b2bded7765b79d1122faeaafa",
+    "buildroot-external/support/prepare-board.py": "eae94d4e3341a2b8599dd2ed38847c76a131d1528966cbae1c616210d304a421",
+    "driver/sdr.c": "a348bba900c57154417daac63c12d98fcfa8320a3e8e6318336d9d868b54a888",
+    "driver/sdr.h": "c1560efb56f062a77c4b4a08b5d399566560cf28ff549569005f69e240a50ae6",
+    "kernel_boot/boards/plutosky_r2/devicetree.dts": "f1c9f0aa17f029f67ee3e91ca01105ce21eef6d6e715d9bfd1fc46d5f7137640",
+    "kernel_boot/kernel_config": "a73194580f36f6ef6823586abc636a8ff7c16dd2fd91f9621374a5062080a125",
+    "tools/plutosky_r2_calibrate.c": "ddf10c1d3210f4a54a39308f6d42ba9fb186988f203b376f6685defc150a0e65"
+  },
+  "scope": "Source identity hashes only; not a complete source backup or proof of current running firmware build provenance"
+}
